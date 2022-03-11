@@ -4,12 +4,12 @@ on:
       - http://evangelizo.org/rss/v2/evangelizo_rss-de.xml
       - https://rss.evangelizo.org/rss/v2/evangelizo_rss-de.xml
     config:
-      every: "0 10,14 * * *"
+      every: "0 9,13 * * *"
       filter:
         content:
           $regex: ....+
-        title:
-          $regex: Kommentar
+        categories:
+          $regex: MEDITATIO
 jobs:
   send2telegram:
     runs-on: ubuntu-latest
@@ -27,4 +27,3 @@ jobs:
               <b> </b>
               <i><a href="${{on.rss.outputs.link}}">${{on.rss.outputs.link}}</a>
               </i>
-          
