@@ -21,9 +21,24 @@ jobs:
           token: ${{ secrets.TELEGRAM_TOKEN }}
           format: html
           message: |
-              <b>${{on.rss.outputs.title}}</b>:
+              <b>${{on.rss.outputs.title}}</b>
+              (Quelle: <i><a href="${{on.rss.outputs.link}}">${{on.rss.outputs.link}}</a></i>)
+      - name: send custom message
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          format: html
+          message: |
               <b> </b>
               ${{on.rss.outputs.content}}
               <b> </b>
-              <i><a href="${{on.rss.outputs.link}}">${{on.rss.outputs.link}}</a>
-              </i>
+      - name: send fuss
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          format: html
+          message: |
+              <i>----------
+              </i>              
