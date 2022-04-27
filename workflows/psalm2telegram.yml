@@ -21,7 +21,7 @@ jobs:
           token: ${{ secrets.TELEGRAM_TOKEN }}
           format: html
           message: |
-              <b>${{on.rss.outputs.title}}</b>:
+              <b>${{on.rss.outputs.title}}</b>
               (<i>Quelle: <a href="${{on.rss.outputs.link}}">${{on.rss.outputs.link}}</a></i>)
       - name: send psalm
         uses: appleboy/telegram-action@master
