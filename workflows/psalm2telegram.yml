@@ -14,6 +14,30 @@ jobs:
   send2telegram:
     runs-on: ubuntu-latest
     steps:
+      - name: Get textstelle
+        id: kapitel
+        run: echo "::set-output name=stelle::"$(echo "${{on.rss.outputs.title}}" | awk -F" " '{print $NF}')
+      - name: Get buch
+        id: buch
+        run: |
+          if [[ "${{on.rss.outputs.title}}" == *"ps"* ]]
+          then
+            echo "::set-output name=name::ps"
+          elif [[ "${{on.rss.outputs.title}}" == *"Lukas"* ]]
+          then
+            echo "::set-output name=name::Lukas"
+          elif [[ "${{on.rss.outputs.title}}" == *"Matthäus"* ]]
+          then
+            echo "::set-output name=name::Matthäus"
+          elif [[ "${{on.rss.outputs.title}}" == *"Markus"* ]]
+          then
+            echo "::set-output name=name::Markus"
+          else
+            echo "::set-output name=name::unbekannt"
+          fi 
+      - name: Get link
+        id: link
+        run: echo "::set-output name=url::https://www.bibleserver.com/EU/${{steps.buch.outputs.name}}${{steps.kapitel.outputs.stelle}}"
       - name: send titel
         uses: appleboy/telegram-action@master
         with:
@@ -21,8 +45,8 @@ jobs:
           token: ${{ secrets.TELEGRAM_TOKEN }}
           format: html
           message: |
-              <b>${{on.rss.outputs.title}}</b>
-              (<i>Quelle: <a href="${{on.rss.outputs.link}}">${{on.rss.outputs.link}}</a></i>)
+              <b><a href="${{steps.link.outputs.url}}">${{on.rss.outputs.title}}</a></b>
+              <i></i>
       - name: send psalm
         uses: appleboy/telegram-action@master
         with:
