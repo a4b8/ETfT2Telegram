@@ -40,5 +40,10 @@ jobs:
           token: ${{ secrets.TELEGRAM_TOKEN }}
           format: html
           message: |
+              <i>--
+              </i>
+              (<i>Quelle: <a href="${{on.rss.outputs.link}}">${{on.rss.outputs.link}}</a></i>)
+              
+              
               <i>----------
-              </i>              
+              </i>
