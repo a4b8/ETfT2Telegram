@@ -132,7 +132,6 @@ jobs:
               <b> </b>
               ${{on.rss.outputs.content}}
               <b> </b>
-              
       - name: send fuss
         uses: appleboy/telegram-action@master
         with:
