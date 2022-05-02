@@ -22,7 +22,7 @@ jobs:
           format: html
           message: |
               <b>${{on.rss.outputs.title}}</b>
-              (Quelle: <i><a href="${{on.rss.outputs.link}}">${{on.rss.outputs.link}}</a></i>)
+              <i></i>
       - name: send kommentar
         uses: appleboy/telegram-action@master
         with:
