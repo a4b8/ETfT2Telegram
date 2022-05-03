@@ -26,10 +26,13 @@ jobs:
           elif [[ "${{on.rss.outputs.title}}" == *"Brief des Apostel Paulus an die Römer"* ]]
           then
             echo "::set-output name=name::Römer"
-          elif [[ "${{on.rss.outputs.title}}" == *"Erster Brief des Apostel Paulus an die Korinther"* ]]
+          elif [[ "${{on.rss.outputs.title}}" == *"an die Römer"* ]]
+          then
+            echo "::set-output name=name::Römer"
+          elif [[ "${{on.rss.outputs.title}}" == *"Erster Brief des Apostels Paulus an die Korinther"* ]]
           then
             echo "::set-output name=name::1.Korinther"
-          elif [[ "${{on.rss.outputs.title}}" == *"Zweiter Brief des Apostel Paulus an die Korinther"* ]]
+          elif [[ "${{on.rss.outputs.title}}" == *"Zweiter Brief des Apostels Paulus an die Korinther"* ]]
           then
             echo "::set-output name=name::2.Korinther"
           elif [[ "${{on.rss.outputs.title}}" == *"Galater"* ]]
@@ -47,16 +50,28 @@ jobs:
           elif [[ "${{on.rss.outputs.title}}" == *"Kolosser"* ]]
           then
             echo "::set-output name=name::Kolosser"
-          elif [[ "${{on.rss.outputs.title}}" == *"Der erste Brief an die Thessalonicher"* ]]
+          elif [[ "${{on.rss.outputs.title}}" == *"erste Brief an die Thessalonicher"* ]]
           then
             echo "::set-output name=name::1.Thessalonicher"
-          elif [[ "${{on.rss.outputs.title}}" == *"Der zweite Brief an die Thessalonicher"* ]]
+          elif [[ "${{on.rss.outputs.title}}" == *"erster Brief an die Thessalonicher"* ]]
+          then
+            echo "::set-output name=name::1.Thessalonicher"
+          elif [[ "${{on.rss.outputs.title}}" == *"zweite Brief an die Thessalonicher"* ]]
           then
             echo "::set-output name=name::2.Thessalonicher"
-          elif [[ "${{on.rss.outputs.title}}" == *"Der erste Brief an Timotheus"* ]]
+          elif [[ "${{on.rss.outputs.title}}" == *"zweiter Brief an die Thessalonicher"* ]]
+          then
+            echo "::set-output name=name::2.Thessalonicher"
+          elif [[ "${{on.rss.outputs.title}}" == *"erste Brief an Timotheus"* ]]
           then
             echo "::set-output name=name::1.Timotheus"
-          elif [[ "${{on.rss.outputs.title}}" == *"Der zweite Brief an Timotheus"* ]]
+          elif [[ "${{on.rss.outputs.title}}" == *"erster Brief an Timotheus"* ]]
+          then
+            echo "::set-output name=name::1.Timotheus"
+          elif [[ "${{on.rss.outputs.title}}" == *"zweite Brief an Timotheus"* ]]
+          then
+            echo "::set-output name=name::2.Timotheus"
+          elif [[ "${{on.rss.outputs.title}}" == *"zweiter Brief an Timotheus"* ]]
           then
             echo "::set-output name=name::2.Timotheus"
           elif [[ "${{on.rss.outputs.title}}" == *"Philemon"* ]]
