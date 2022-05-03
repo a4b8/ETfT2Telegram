@@ -14,15 +14,6 @@ jobs:
   send2telegram:
     runs-on: ubuntu-latest
     steps:
-      - name: send titel
-        uses: appleboy/telegram-action@master
-        with:
-          to: ${{ secrets.TELEGRAM_TO }}
-          token: ${{ secrets.TELEGRAM_TOKEN }}
-          format: html
-          message: |
-              <b>${{on.rss.outputs.title}}</b>
-              <i></i>
       - name: send kommentar
         uses: appleboy/telegram-action@master
         with:
@@ -30,16 +21,10 @@ jobs:
           token: ${{ secrets.TELEGRAM_TOKEN }}
           format: html
           message: |
-              <b> </b>
+              <b>${{on.rss.outputs.title}}</b>
+              <b><i></i></b>
               ${{on.rss.outputs.content}}
-              <b> </b>
-      - name: send fuss
-        uses: appleboy/telegram-action@master
-        with:
-          to: ${{ secrets.TELEGRAM_TO }}
-          token: ${{ secrets.TELEGRAM_TOKEN }}
-          format: html
-          message: |
+              <b></b>
               <i>--
               </i>
               (<i>Quelle: <a href="${{on.rss.outputs.link}}">${{on.rss.outputs.link}}</a></i>)
